@@ -69,7 +69,7 @@ export default function Page() {
       setUser({ id: sessionUser.id, email: sessionUser.email ?? "", profile: null });
       setAppLoading(false);
     };
-    void supabase.auth.getSession().then(({ data, error: sessionError }) => {
+    void supabase.auth.getSession().then(({ data, error: sessionError }: { data: { session: import('@supabase/supabase-js').Session | null }; error: Error | null }) => {
       if (sessionError) setError(sessionError.message);
       return setFromSession(data.session?.user ?? null);
     }).catch((e: unknown) => {
