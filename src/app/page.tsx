@@ -223,7 +223,7 @@ export default function Page() {
 
     setConversations(mapped);
     setActiveConversationId((old) =>
-      old && mapped.some((c) => c.id === old) ? old : ""
+     old && mapped.some((c: { id: string }) => c.id === old) ? old : ""
     );
   }, [supabase]);
 
