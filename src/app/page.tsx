@@ -259,9 +259,10 @@ export default function Page() {
           .in("id", senderIds)
       : { data: [] as any[] };
 
-    const profileMap = new Map(
-      (profiles ?? []).map((p: any) => [p.id, p])
-    );
+    const profileMap = new Map<
+      string,
+      { id: string; display_name: string; handle: string }
+    >((profiles ?? []).map((p: any) => [p.id, p]));
 
     setMessages(
       (data ?? []).map((m: any) => {
