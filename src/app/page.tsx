@@ -201,7 +201,7 @@ export default function Page() {
       return;
     }
 
-    const mapped = (convRows ?? []).map((c: any) => {
+    const mapped: ConversationVM[] = (convRows ?? []).map((c: any) => {
       const peers = (allMembers ?? []).filter(
         (m: any) => m.conversation_id === c.id && m.user_id !== uid
       );
